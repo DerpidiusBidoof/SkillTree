@@ -42,6 +42,9 @@ public class SkillTree : MonoBehaviour
         // This loop goes through all the "Skill" objects found within the "SkillHolder" game object and adds them to the SkillList.
         foreach (var skill in SkillHolder.GetComponentsInChildren<Skill>()) SkillList.Add(skill);
 
+        // Assign unique IDs to each skill in SkillList.
+        for (var i = 0; i < SkillList.Count; i++) SkillList[i].id = i;
+
         // Call the UpdateAllSkillUI method to update the user interface for all skills.
         UpdateAllSkillUI();
     }
