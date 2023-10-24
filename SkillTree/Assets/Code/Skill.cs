@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 // Imports the SkillTree script.
 using static SkillTree;
+using Unity.VisualScripting;
 
 public class Skill : MonoBehaviour
 {
@@ -34,6 +35,14 @@ public class Skill : MonoBehaviour
         If there is at least 1 skill point available, set the color to green.*/
         GetComponent<Image>().color = skillTree.SkillLevels[id] >= skillTree.SkillCaps[id] ? Color.yellow
             : skillTree.SkillPoints >= 1 ? Color.green : Color.white;
+
+        // Loop through ConnectedSkills and manage the visibility of connected skills and connectors.
+        foreach (var connectedSkill in ConnectedSkills)
+        {
+            // Set the visibility of connected skills and connectors based on the current skill's level.
+            skillTree.SkillList[connectedSkill].gameObject.SetActive(skillTree.SkillLevels[id] > 0);
+            skillTree.ConnectorList[connectedSkill].SetActive(skillTree.SkillLevels[id] > 0);
+        }
     }
 
 

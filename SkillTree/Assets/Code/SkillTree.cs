@@ -15,6 +15,9 @@ public class SkillTree : MonoBehaviour
     public List<Skill> SkillList;
     public GameObject SkillHolder;
 
+    public List<GameObject> ConnectorList;
+    public GameObject ConnectorHolder;
+
 
     public float SkillPoints;
 
@@ -41,6 +44,12 @@ public class SkillTree : MonoBehaviour
 
         // This loop goes through all the "Skill" objects found within the "SkillHolder" game object and adds them to the SkillList.
         foreach (var skill in SkillHolder.GetComponentsInChildren<Skill>()) SkillList.Add(skill);
+        // This loop goes through all the child objects with RectTransform components within the ConnectorHolder game object and adds them to the ConnectorList.
+        foreach (var connector in ConnectorHolder.GetComponentsInChildren<RectTransform>()) ConnectorList.Add(connector.gameObject);
+
+        // Set connected skills for specific skills.
+        SkillList[0].ConnectedSkills = new[] {1,2,3 }; 
+        SkillList[2].ConnectedSkills = new[] {4,5 }; 
 
         // Assign unique IDs to each skill in SkillList.
         for (var i = 0; i < SkillList.Count; i++) SkillList[i].id = i;
