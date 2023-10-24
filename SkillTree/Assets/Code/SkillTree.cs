@@ -35,8 +35,9 @@ public class SkillTree : MonoBehaviour
         SkillNames = new[] {"Upgrade 1", "Upgrade 2", "Upgrade 3", "Upgrade 4", "Booster 5", "Booster 6", };
         SkillDescriptions = new[]
         {
-            "Does a  thing",
+            "Does a thing",
             "Does a cool thing",
+            "Does a really cool thing",
             "Does an awesome thing",
             "Does this math thing",
             "Does this compounding thing",

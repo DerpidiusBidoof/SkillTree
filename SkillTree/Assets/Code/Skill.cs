@@ -22,7 +22,7 @@ public class Skill : MonoBehaviour
     public void UpdateUI()
     {
         // Set the skill title text to show the current skill level, skill cap, and skill name.
-        SkillTitleText.text = $"{skillTree.SkillLevels[id]}/{skillTree.SkillCaps[id]}\n{ SkillTree.skillTree.SkillNames[id]}";
+        SkillTitleText.text = $"{skillTree.SkillLevels[id]}/{skillTree.SkillCaps[id]}\n{skillTree.SkillNames[id]}";
        
         // Set the skill description text to show the skill's description and the cost in skill points.
         SkillDescriptionText.text = $"{skillTree.SkillDescriptions[id]}\nCost: {skillTree.SkillPoints}/1 SP";
